@@ -28,26 +28,9 @@ app.post('/articles', (request, response) => {
   response.status(201).json(request.body);
 });
 
-/* ------------------------- */
-
-// from this line, I can use APP to create any ATP handler / listener / route
-// when app gets a 'get' request, run this
-// /show-me-a-message is the last part of a URL
-// go to localhost:3000/show-me-a-message to trigger this
-app.get('/show-me-a-message', (request, response) => {
-  console.log('got a a GET REQUEST');
-  response.send('<h1>hello from the other side of a full-stack application</h1>');
-});
-
 app.get('*', (request, response) => {
   response.status(404).send(`${request.url} HTTP 404 - Not Found`);
 });
-
-// $.<METHOD>(url)   // could be get or ajax or getJSON, etc
-// .done() // done sending request
-// .fail()
-// .always()
-// .then() //response is here
 
 // run and wait for any requests to happen
 // starting the WRRC (Web Request-Response Cycle)
