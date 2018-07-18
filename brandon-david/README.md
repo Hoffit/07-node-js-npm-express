@@ -4,18 +4,26 @@
 **Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
+This is a site for users to create and read blog articles. Articles have typical attributes such as a title, an 
+author, body, and when it was published.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+git clone this repo to begin using this web site app.
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+This is a simple web site app using standard web technologies:
+HTML
+CSS
+JavaScript
+JQuery
+Handlebars
+Node.js with ExpressJS.
 
 ## Change Log
-<!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+2018 07 18 : This is our first version of this web site. We completed lab instructions.
+We have a server running that support get web requests and serves up various pages.
 
 ## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+Brandon Haynes and David Hull.
+MIT License.
+Vendor icons and normalize.

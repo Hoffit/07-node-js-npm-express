@@ -2,8 +2,7 @@
 
 const express = require('express');
 const PORT = process.env.PORT || 3000;
-// this needs to be called because of DOCUMENTATION
-const app = express(); 
+const app = express();
 
 // POST middleware
 // is this top .use() optional?
@@ -38,6 +37,10 @@ app.post('/articles', (request, response) => {
 app.get('/show-me-a-message', (request, response) => {
   console.log('got a a GET REQUEST');
   response.send('<h1>hello from the other side of a full-stack application</h1>');
+});
+
+app.get('*', (request, response) => {
+  response.status(404).send(`${request.url} HTTP 404 - Not Found`);
 });
 
 // $.<METHOD>(url)   // could be get or ajax or getJSON, etc
