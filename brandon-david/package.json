@@ -10,6 +10,9 @@
   "author": "David Hull and Brandon Haynes",
   "license": "MIT",
   "dependencies": {
-    "Express": "^3.0.1"
+    "Express": "^3.0.1",
+    "express": "^4.16.3",
+    "node": "^10.6.0",
+    "nodemon": "^1.18.3"
   }
 }

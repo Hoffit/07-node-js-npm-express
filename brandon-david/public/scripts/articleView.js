@@ -75,7 +75,8 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
-// PUT YOUR RESPONSE HERE
+// This function gets called when the user requests the new article page (new.html) via a get request at /articles. It's
+// invoked at the bottom of the new.html file. The request is routed via the server.js controller.
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
   $('#export-field').hide();
@@ -88,7 +89,9 @@ articleView.initNewArticlePage = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// In the prior function, initNewArticlePage, an event listener is registered on the change event. The event handler is
+// this function here. So, when the user focus leaves the input text area, the event is fired, and this function is
+// invoked.
 articleView.create = () => {
   let article;
   $('#articles').empty();
@@ -104,7 +107,7 @@ articleView.create = () => {
 
   $('#articles').append(article.toHtml());
 
-  $('pre code').each(function(i, block) {
+  $('pre code').each((i, block) => {
     hljs.highlightBlock(block);
   });
 
@@ -113,7 +116,8 @@ articleView.create = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// In the prior function, initNewArticlePage, an event listener is registered on the submit event. The event handler is
+// this function here. So, when the user clicks the submit button, the event is fired, and this function is invoked.
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -126,9 +130,9 @@ articleView.submit = event => {
   });
 
   // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
-  // PUT YOUR RESPONSE HERE
+  // It is defined in Article.js. It's called at the end of this submit callback function triggered by submit event.
   article.insertRecord();
-}
+};
 
 articleView.initIndexPage = () => {
   Article.all.forEach(article =>{
