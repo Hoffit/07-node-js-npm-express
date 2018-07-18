@@ -1,6 +1,6 @@
 'use strict';
 
-const express = require('Express');
+const express = require('express');
 const PORT = process.env.PORT || 3000;
 // this needs to be called because of DOCUMENTATION
 const app = express(); 
@@ -8,8 +8,19 @@ const app = express();
 // POST middleware
 // is this top .use() optional?
 app.use(express.urlencoded({ extended: true }));
-// this is telling express to use the .public folder to send pictures back to the view
-app.use(express.static('/public'));
+// this is telling express to use the public folder in the current directory "./"
+app.use(express.static('./public'));
+
+app.get('', (request, response) => {
+  console.log('got a a GET REQUEST - /index');
+  response.sendFile('/public/index.html', {root: '.'});
+});
+
+app.get('/articles', (request, response) => {
+  // REVIEW: This route will receive a new article from the form page, new.html, and log that form data to the console. We will wire this up soon to actually write a record to our persistence layer!
+  console.log('got a a GET REQUEST - /articles');
+  response.sendFile('/public/new.html', {root: '.'});
+});
 
 // REVIEW: POST route needs to parse the body passed in with the request.
 app.post('/articles', (request, response) => {
@@ -29,14 +40,14 @@ app.get('/show-me-a-message', (request, response) => {
   response.send('<h1>hello from the other side of a full-stack application</h1>');
 });
 
-app.get('/hound', (request, response) => {
-  // '.' look in same file you're in now
-  // {root: '.'} === fancy way of adding . in ./public/...
-  response.sendFile('/public/ound-v2.html', {root: '.'});
-});
+// $.<METHOD>(url)   // could be get or ajax or getJSON, etc
+// .done() // done sending request
+// .fail()
+// .always()
+// .then() //response is here
 
 // run and wait for any requests to happen
 // starting the WRRC (Web Request-Response Cycle)
 app.listen(PORT, () => {
-  console.log('server is up on port ${PORT}');
+  console.log(`server is up on port ${PORT}`);
 });
